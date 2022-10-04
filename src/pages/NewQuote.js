@@ -6,13 +6,13 @@ import {useEffect} from "react";
 
 const NewQuote = () => {
     const { sendRequest, status } = useHttp(addQuote)
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (status === 'completed') {
-            history.push('/quotes');
+            navigate('/quotes');
         }
-    }, [status, history]);
+    }, [status, navigate]);
 
     const addQuoteHandler = (quoteData) => {
         sendRequest(quoteData);
