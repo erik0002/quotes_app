@@ -3,10 +3,11 @@ import {Fragment, useRef, useState} from 'react';
 import Card from '../UI/Card';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import classes from './QuoteForm.module.css';
-import {Prompt} from "react-router-dom";
+//import {Prompt} from "react-router-dom";
 
 const QuoteForm = (props) => {
-    const [isEntered, setIsEntering] = useState(false);
+    const [isEntereding, setIsEntering] = useState(false);
+
     const authorInputRef = useRef();
     const textInputRef = useRef();
 
@@ -31,14 +32,18 @@ const QuoteForm = (props) => {
 
     return (
         <Fragment>
-            <Prompt
-                when={isEntered}
-                message={(location) =>
-                'Are you sure you want to leave? All your entered data will be lost!'
-            }
-            />
+            {/*<Prompt*/}
+            {/*    when={isEntered}*/}
+            {/*    message={(location) =>*/}
+            {/*    'Are you sure you want to leave? All your entered data will be lost!'*/}
+            {/*}*/}
+            {/*/>*/}
             <Card>
-                <form onFocus={formFocusedHandler} className={classes.form} onSubmit={submitFormHandler}>
+                <form
+                    onFocus={formFocusedHandler}
+                    className={classes.form}
+                    onSubmit={submitFormHandler}
+                >
                     {props.isLoading && (
                         <div className={classes.loading}>
                             <LoadingSpinner/>
